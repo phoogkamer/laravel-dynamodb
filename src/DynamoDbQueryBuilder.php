@@ -202,16 +202,16 @@ class DynamoDbQueryBuilder
 
     public function count()
     {
-        return $this->getAll([$this->model->getKeyName()])->count();
+        return $this->getAll([$this->model->getKeyName()])->filter()->count();
     }
 
     protected function getAll($columns = [], $limit = -1, $use_iterator = true)
     {
-        if ($conditionValue = $this->conditionsContainKey()) {
-            $item = $this->find($conditionValue, $columns);
-
-            return new Collection([$item]);
-        }
+//        if ($conditionValue = $this->conditionsContainKey()) {
+//            $item = $this->find($conditionValue, $columns);
+//
+//            return new Collection([$item]);
+//        }
 
         $query = [
             'TableName' => $this->model->getTable(),
