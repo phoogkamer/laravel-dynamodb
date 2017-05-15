@@ -202,7 +202,7 @@ class DynamoDbQueryBuilder
 
     public function count()
     {
-        return $this->getAll([$this->model->getKeyName()])->count();
+        return $this->getAll([$this->model->getKeyName()])->filter()->count();
     }
 
     protected function getAll($columns = [], $limit = -1, $use_iterator = true)
