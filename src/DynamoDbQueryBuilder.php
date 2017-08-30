@@ -207,11 +207,11 @@ class DynamoDbQueryBuilder
 
     protected function getAll($columns = [], $limit = -1, $use_iterator = true)
     {
-//        if ($conditionValue = $this->conditionsContainKey()) {
-//            $item = $this->find($conditionValue, $columns);
-//
-//            return new Collection([$item]);
-//        }
+        if ($conditionValue = $this->conditionsContainKey()) {
+            $item = $this->find($conditionValue, $columns);
+
+            return new Collection([$item]);
+        }
 
         $query = [
             'TableName' => $this->model->getTable(),
